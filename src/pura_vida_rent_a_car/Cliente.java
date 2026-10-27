@@ -39,5 +39,12 @@ public class Cliente {
         this.correo_electronico = correo_electronico;
     }
     
+    @Override
+    public String toString() {
+        return "Cliente [Nombre: " + nombre
+                + ", Cedula: " + cedula
+                + ", Telefono: " + telefono
+                + ", Correo: " + correo_electronico + "]";
+    }
     
 }
