@@ -38,18 +38,18 @@ public class Sistema_Rent_a_Car {
     //metodo para mostarr vehiculos
 
     public void mostrarVehiculos() {
-        for (Vehiculo vehiculo : vehiculos);
-        System.out.println(vehiculos);
+        for (Vehiculo vehiculo : vehiculos)
+        System.out.println(vehiculo);
     }
     //metodo para mostrar clientes
     public void mostrarCliente() {
-        for (Cliente cliente : clientes);
-        System.out.println(clientes);
+        for (Cliente cliente : clientes)
+        System.out.println(cliente);
     }
     //metodo para mostrar alquileres
     public void mostrarAlquileres() {
-        for (Alquiler alquiler : alquileres);
-        System.out.println(alquileres);
+        for (Alquiler alquiler : alquileres)
+        System.out.println(alquiler);
     }
 
 }
