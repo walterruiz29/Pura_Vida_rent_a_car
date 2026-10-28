@@ -51,6 +51,26 @@ public class Sistema_Rent_a_Car {
         for (Alquiler alquiler : alquileres)
         System.out.println(alquiler);
     }
+    
+    //metodo para buscar vehiculo
+    public Vehiculo buscarVehiculo(int idVehiculo) {
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.idVehiculo == idVehiculo) {
+                return vehiculo;
+            }
+        }
+        return null;
+    }
+
+    //metodo buscar cliente
+    public Cliente buscarCliente(String cedula) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCedula().equals(cedula)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
 
 }
 

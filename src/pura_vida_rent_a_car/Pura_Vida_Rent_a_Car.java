@@ -70,6 +70,7 @@ public class Pura_Vida_Rent_a_Car {
                     
                  
                     switch (tipoVehiculo) {
+                        
                         case 1:{
                             // Sedan
                             System.out.print("ID del vehiculo: ");
@@ -183,9 +184,46 @@ public class Pura_Vida_Rent_a_Car {
 
                     break;
 
-                case 3:
-                    System.out.println("Registrar alquiler");
+                case 3: {
+                    /*en este caso se resgistra el alquiler de el vehiculo solicitando un id de alquiler, cedula del cliente, id del vehiculo, cantidad de dias a alquilar*/
+
+                    System.out.println("===== REGISTRO DE ALQUILER =====");
+
+                    System.out.print("ID del alquiler: ");
+                    int idAlquiler = lectura.nextInt();
+                    lectura.nextLine();
+
+                    System.out.print("Cedula del cliente: ");
+                    String cedulaCliente = lectura.nextLine();
+
+                    Cliente clienteEncontrado = sistema.buscarCliente(cedulaCliente);
+
+                    if (clienteEncontrado == null) {
+                        System.out.println("Cliente no encontrado.");
+                        break;
+                    }
+
+                    System.out.print("ID del vehiculo: ");
+                    int idVehiculo = lectura.nextInt();
+
+                    Vehiculo vehiculoEncontrado = sistema.buscarVehiculo(idVehiculo);
+
+                    if (vehiculoEncontrado == null) {
+                        System.out.println("Vehiculo no encontrado.");
+                        break;
+                    }
+
+                    System.out.print("Cantidad de dias de alquiler: ");
+                    int diasAlquiler = lectura.nextInt();
+
+                    Alquiler alquiler = new Alquiler(idAlquiler,clienteEncontrado,vehiculoEncontrado,diasAlquiler);
+
+                    sistema.registrarAlquiler(alquiler);
+
+                    System.out.println("Alquiler registrado correctamente.");
+
                     break;
+                }
 
                 case 4:
                     sistema.mostrarCliente();
