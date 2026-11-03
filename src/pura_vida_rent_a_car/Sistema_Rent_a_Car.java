@@ -71,7 +71,26 @@ public class Sistema_Rent_a_Car {
         }
         return null;
     }
+        public static void main(String[] args) {
+        probarRegistroPagos();
+    }
+        public static void probarRegistroPagos() {
+        // Pago 1
+        RegistroPago pago1 = new RegistroPago(250.00, "Efectivo", "Juan Pérez", "ABC-123");
+        pago1.registrarPago();
+        pago1.verificarEstado();
+
+        // Pago 2
+        RegistroPago pago2 = new RegistroPago(375.50, "Tarjeta", "María López", "XYZ-789");
+        pago2.registrarPago();
+
+        // Pago 3 con monto inválido
+        RegistroPago pago3 = new RegistroPago(0, "Transferencia", "Pedro Gómez", "MOT-456");
+        pago3.registrarPago();
+
+        // Ver historial completo
+        RegistroPago.mostrarHistorial();
+    }
 
 }
-
 
