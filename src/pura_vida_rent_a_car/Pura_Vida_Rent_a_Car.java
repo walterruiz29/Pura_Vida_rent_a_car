@@ -23,7 +23,8 @@ public class Pura_Vida_Rent_a_Car {
             System.out.println("4. Mostrar clientes");
             System.out.println("5. Mostrar vehiculos");
             System.out.println("6. Mostrar alquileres");
-            System.out.println("7. Salir");
+             System.out.println("7. Registrar pago");
+            System.out.println("8. Salir");
             System.out.println("");
             System.out.println("Seleccione una opcion para continuar: ");
 
@@ -241,6 +242,11 @@ public class Pura_Vida_Rent_a_Car {
                     break;
 
                 case 7:
+                    sistema.RegistroPago();
+                    System.out.println("");
+                    break;
+                    
+                case 8:
                     System.out.println("Gracias por usar el sistema.");
                     System.out.println("");
                     break;
@@ -251,7 +257,7 @@ public class Pura_Vida_Rent_a_Car {
 
             }
 
-        } while (opcion != 7);
+        } while (opcion != 8);
 
     }
 }
