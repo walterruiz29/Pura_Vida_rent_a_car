@@ -9,12 +9,14 @@ public class Sistema_Rent_a_Car {
     private ArrayList<Cliente> clientes;
     private ArrayList<Vehiculo> vehiculos;
     private ArrayList<Alquiler> alquileres;
+    private ArrayList<Mantenimiento> mantenimientos;
     
     //se crea un constructor vacio y se inicializan los arrayList
     public Sistema_Rent_a_Car(){
         clientes = new ArrayList<>();
         vehiculos = new ArrayList<>();
         alquileres = new ArrayList<>();
+        mantenimientos = new ArrayList<>();
     }
 
     //metodo para registrar los clientes
@@ -27,10 +29,17 @@ public class Sistema_Rent_a_Car {
         vehiculos.add(vehiculo);
     }
     
+    
     //metodo para registro de alquileres
     public void registrarAlquiler(Alquiler alquiler){
         alquileres.add(alquiler);
     }
+    
+    // Metodo para registrar mantenimientos
+    public void registrarMantenimiento(Mantenimiento mantenimiento){
+        mantenimientos.add(mantenimiento);
+    }
+    
 
     //metodo para mostrar vehiculos
     public void mostrarVehiculos() {
@@ -71,6 +80,13 @@ public class Sistema_Rent_a_Car {
             }
         }
         return null;
+        
+    }
+        
+     //Metodo para mostrar mantenimientos
+    public void mostrarMantenimientos(){
+        for (Mantenimiento mantenimiento : mantenimientos)
+System.out.println(mantenimiento);
     }
 
  

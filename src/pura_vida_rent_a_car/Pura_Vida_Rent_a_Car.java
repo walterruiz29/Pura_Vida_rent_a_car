@@ -23,8 +23,10 @@ public class Pura_Vida_Rent_a_Car {
             System.out.println("4. Mostrar clientes");
             System.out.println("5. Mostrar vehiculos");
             System.out.println("6. Mostrar alquileres");
-             System.out.println("7. Registrar pago");
-            System.out.println("8. Salir");
+            System.out.println("7. Registrar mantenimientos");
+            System.out.println("8. Mostrar mantenimientos");
+            System.out.println("9. Registrar pago");
+            System.out.println("10. Salir");
             System.out.println("");
             System.out.println("Seleccione una opcion para continuar: ");
 
@@ -148,7 +150,7 @@ public class Pura_Vida_Rent_a_Car {
                             break;
                         }
                         
-                        /*en este caso ingresamos la informacion de la mato y creamos la nueva moto*/
+                        /*en este caso ingresamos la informacion de la moto y creamos la nueva moto*/
 
                         case 3:{
                             // Moto
@@ -225,31 +227,82 @@ public class Pura_Vida_Rent_a_Car {
 
                     break;
                 }
+                    
+                 case 4: {
+                     sistema.mostrarCliente();
+                     System.out.println("");
+                }
+    
 
-                case 4:
-                    sistema.mostrarCliente();
-                    System.out.println("");
-                    break;
-
-                case 5:
+                case 5:{
                     sistema.mostrarVehiculos();
                     System.out.println("");
                     break;
+                }
 
-                case 6:
+                case 6:{
                     sistema.mostrarAlquileres();
                     System.out.println("");
                     break;
+                }
+                
+                 case 7:{
+    
+                 
+                    // Registro de mantenimiento
+                    System.out.println("===Registro de mantenimiento: ");
+                    
+                    System.out.println("ID del mantenimiento: ");
+                    int idMantenimiento = lectura.nextInt();
+                    lectura.nextLine();
+                    
+                    System.out.println("ID del vehiculo");
+                    int idVehiculoMantenimiento = lectura.nextInt();
+                    lectura.nextLine();
+                    
+                    Vehiculo vehiculoMantenimiento = sistema.buscarVehiculo(idVehiculoMantenimiento);
+                    
+                    if (vehiculoMantenimiento == null){
+                    System.out.println("Vehiculo no encontrado");
+                    break;
+                    }
+                  
+                    System.out.println("Descripcion del mantenimiento");
+                    String descripcion = lectura.nextLine();
+                    
+                    System.out.println("Fecha del mantenimiento: ");
+                    String fecha = lectura.nextLine();
+                    
+                    System.out.println("Costo del mantenimiento: ");
+                    double costo = lectura.nextDouble();
+                    
+                    Mantenimiento mantenimiento = new Mantenimiento(idMantenimiento, vehiculoMantenimiento, descripcion, fecha, costo);
+                    
+                    sistema.registrarMantenimiento(mantenimiento);
+                    System.out.println("Mantenimiento registrado correctamente");
+                    System.out.println("");
+                    break;
+                }
+                 case 8: {
+                    sistema.mostrarMantenimientos();
+                    System.out.println("");
+                    break;
+                }
 
-                case 7:
+                case 9:{
                     sistema.RegistroPago();
                     System.out.println("");
                     break;
+                }
+               
+                     
+                
                     
-                case 8:
+                case 10:{
                     System.out.println("Gracias por usar el sistema.");
                     System.out.println("");
                     break;
+                }
 
                 default:
                     System.out.println("Opcion no valida.");
@@ -257,7 +310,7 @@ public class Pura_Vida_Rent_a_Car {
 
             }
 
-        } while (opcion != 8);
+            }while (opcion != 10);
 
-    }
-}
+                }
+            }
