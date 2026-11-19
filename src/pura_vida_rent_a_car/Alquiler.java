@@ -63,12 +63,11 @@ public class Alquiler {
     }
 
     // Método toString para visualizar la información del alquiler fácilmente
-    @Override
-    public String toString() {
-        return "Alquiler #" + idAlquiler + 
-               " | Cliente: " + cliente.nombre + 
-               " | Vehículo: " + vehiculo.marca + " " + vehiculo.getModelo() + 
-               " | Días: " + diasAlquiler + 
+        public String toString() {
+        return "Alquiler #" + idAlquiler +
+               " | Cliente: " + cliente.nombre +
+               " | Vehículo: " + vehiculo.getMarca() + " " + vehiculo.getModelo() +
+               " | Días: " + diasAlquiler +
                " | Costo Total: $" + costoTotal;
     }
 }

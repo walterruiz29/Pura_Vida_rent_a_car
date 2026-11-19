@@ -62,15 +62,14 @@ public class Mantenimiento {
         this.costo = costo;
     }
 
-    @Override
+@Override
     public String toString() {
         return "Mantenimiento #" + idMantenimiento
-                + " | Vehiculo: " + vehiculo.getModelo()
+                + " | Vehiculo: " + vehiculo.getMarca()
                 + " " + vehiculo.getModelo()
                 + " | Descripcion: " + descripcion
                 + " | Fecha: " + fecha
                 + " | Costo: $" + costo;
-    }
 
-    
+    }
 }

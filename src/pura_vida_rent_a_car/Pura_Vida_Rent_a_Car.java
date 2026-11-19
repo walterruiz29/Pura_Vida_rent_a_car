@@ -188,7 +188,8 @@ public class Pura_Vida_Rent_a_Car {
                     break;
 
                 case 3: {
-                    /*en este caso se resgistra el alquiler de el vehiculo solicitando un id de alquiler, cedula del cliente, id del vehiculo, cantidad de dias a alquilar*/
+                    /* En este caso se registra el alquiler del vehículo solicitando
+                       un ID de alquiler, cédula del cliente, ID del vehículo y cantidad de días */
 
                     System.out.println("===== REGISTRO DE ALQUILER =====");
 
@@ -203,34 +204,52 @@ public class Pura_Vida_Rent_a_Car {
 
                     if (clienteEncontrado == null) {
                         System.out.println("Cliente no encontrado.");
+                        System.out.println("");
                         break;
                     }
 
                     System.out.print("ID del vehiculo: ");
                     int idVehiculo = lectura.nextInt();
+                    lectura.nextLine();
 
                     Vehiculo vehiculoEncontrado = sistema.buscarVehiculo(idVehiculo);
 
                     if (vehiculoEncontrado == null) {
                         System.out.println("Vehiculo no encontrado.");
+                        System.out.println("");
+                        break;
+                    }
+
+                    if (!vehiculoEncontrado.isDisponible()) {
+                        System.out.println("El vehiculo no esta disponible actualmente.");
+                        System.out.println("");
                         break;
                     }
 
                     System.out.print("Cantidad de dias de alquiler: ");
                     int diasAlquiler = lectura.nextInt();
+                    lectura.nextLine();
 
-                    Alquiler alquiler = new Alquiler(idAlquiler,clienteEncontrado,vehiculoEncontrado,diasAlquiler);
+                    if (diasAlquiler <= 0) {
+                        System.out.println("La cantidad de dias debe ser mayor a cero.");
+                        System.out.println("");
+                        break;
+                    }
 
+                    Alquiler alquiler = new Alquiler(idAlquiler, clienteEncontrado, vehiculoEncontrado, diasAlquiler);
+                    vehiculoEncontrado.setDisponible(false);
                     sistema.registrarAlquiler(alquiler);
 
                     System.out.println("Alquiler registrado correctamente.");
-
+                    System.out.println("Costo total: $" + alquiler.getCostoTotal());
+                    System.out.println("");
                     break;
                 }
-                    
+                
                  case 4: {
                      sistema.mostrarCliente();
                      System.out.println("");
+                     break;
                 }
     
 
