@@ -10,6 +10,7 @@ public class Sistema_Rent_a_Car {
     private ArrayList<Vehiculo> vehiculos;
     private ArrayList<Alquiler> alquileres;
     private ArrayList<Mantenimiento> mantenimientos;
+    private ArrayList<Contrato> contratos;
     
     //se crea un constructor vacio y se inicializan los arrayList
     public Sistema_Rent_a_Car(){
@@ -17,6 +18,7 @@ public class Sistema_Rent_a_Car {
         vehiculos = new ArrayList<>();
         alquileres = new ArrayList<>();
         mantenimientos = new ArrayList<>();
+        contratos = new ArrayList<>();
     }
 
     //metodo para registrar los clientes
@@ -40,6 +42,48 @@ public class Sistema_Rent_a_Car {
         mantenimientos.add(mantenimiento);
     }
     
+
+    // Metodo para registrar contratos de alquiler
+    public void registrarContrato(Contrato contrato){
+        contratos.add(contrato);
+    }
+
+    // Metodo para mostrar contratos
+    public void mostrarContratos(){
+        for (Contrato contrato : contratos) {
+            System.out.println(contrato);
+        }
+    }
+
+    // Metodo para buscar alquiler por ID
+    public Alquiler buscarAlquiler(int idAlquiler) {
+        for (Alquiler alquiler : alquileres) {
+            if (alquiler.getIdAlquiler() == idAlquiler) {
+                return alquiler;
+            }
+        }
+        return null;
+    }
+
+    // Metodo para buscar contrato por ID
+    public Contrato buscarContrato(int idContrato) {
+        for (Contrato contrato : contratos) {
+            if (contrato.getIdContrato() == idContrato) {
+                return contrato;
+            }
+        }
+        return null;
+    }
+
+    // Metodo para buscar el contrato asociado a un alquiler (null si no tiene)
+    public Contrato buscarContratoPorAlquiler(int idAlquiler) {
+        for (Contrato contrato : contratos) {
+            if (contrato.getAlquiler().getIdAlquiler() == idAlquiler) {
+                return contrato;
+            }
+        }
+        return null;
+    }
 
     //metodo para mostrar vehiculos
     public void mostrarVehiculos() {

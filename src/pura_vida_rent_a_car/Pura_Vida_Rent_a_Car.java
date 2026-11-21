@@ -26,7 +26,8 @@ public class Pura_Vida_Rent_a_Car {
             System.out.println("7. Registrar mantenimientos");
             System.out.println("8. Mostrar mantenimientos");
             System.out.println("9. Registrar pago");
-            System.out.println("10. Salir");
+            System.out.println("10. Administrar contratos");
+            System.out.println("11. Salir");
             System.out.println("");
             System.out.println("Seleccione una opcion para continuar: ");
 
@@ -318,6 +319,119 @@ public class Pura_Vida_Rent_a_Car {
                 
                     
                 case 10:{
+                    /* Submenu del modulo de contratos de alquiler: permite registrar un contrato
+                       asociado a un alquiler existente, mostrarlos, y finalizarlos o cancelarlos */
+                    System.out.println("===== ADMINISTRAR CONTRATOS =====");
+                    System.out.println("1. Registrar contrato");
+                    System.out.println("2. Mostrar contratos");
+                    System.out.println("3. Finalizar contrato");
+                    System.out.println("4. Cancelar contrato");
+
+                    int opcionContrato = lectura.nextInt();
+                    lectura.nextLine();
+
+                    switch (opcionContrato) {
+
+                        case 1: {
+                            System.out.println("===== REGISTRO DE CONTRATO =====");
+
+                            System.out.print("ID del contrato: ");
+                            int idContrato = lectura.nextInt();
+                            lectura.nextLine();
+
+                            if (sistema.buscarContrato(idContrato) != null) {
+                                System.out.println("Ya existe un contrato con ese ID.");
+                                System.out.println("");
+                                break;
+                            }
+
+                            System.out.print("ID del alquiler: ");
+                            int idAlquilerContrato = lectura.nextInt();
+                            lectura.nextLine();
+
+                            Alquiler alquilerContrato = sistema.buscarAlquiler(idAlquilerContrato);
+
+                            if (alquilerContrato == null) {
+                                System.out.println("Alquiler no encontrado.");
+                                System.out.println("");
+                                break;
+                            }
+
+                            if (sistema.buscarContratoPorAlquiler(idAlquilerContrato) != null) {
+                                System.out.println("Ese alquiler ya tiene un contrato asociado.");
+                                System.out.println("");
+                                break;
+                            }
+
+                            System.out.print("Fecha de inicio: ");
+                            String fechaInicio = lectura.nextLine();
+
+                            System.out.print("Fecha de fin: ");
+                            String fechaFin = lectura.nextLine();
+
+                            System.out.print("Observaciones: ");
+                            String observaciones = lectura.nextLine();
+
+                            Contrato contrato = new Contrato(idContrato, alquilerContrato, fechaInicio, fechaFin, observaciones);
+
+                            sistema.registrarContrato(contrato);
+
+                            System.out.println("Contrato registrado correctamente.");
+                            System.out.println("");
+                            break;
+                        }
+
+                        case 2: {
+                            sistema.mostrarContratos();
+                            System.out.println("");
+                            break;
+                        }
+
+                        case 3: {
+                            System.out.print("ID del contrato a finalizar: ");
+                            int idContratoFinalizar = lectura.nextInt();
+                            lectura.nextLine();
+
+                            Contrato contratoFinalizar = sistema.buscarContrato(idContratoFinalizar);
+
+                            if (contratoFinalizar == null) {
+                                System.out.println("Contrato no encontrado.");
+                            } else if (contratoFinalizar.finalizar()) {
+                                System.out.println("Contrato finalizado. El vehiculo vuelve a estar disponible.");
+                            } else {
+                                System.out.println("El contrato ya no esta activo.");
+                            }
+                            System.out.println("");
+                            break;
+                        }
+
+                        case 4: {
+                            System.out.print("ID del contrato a cancelar: ");
+                            int idContratoCancelar = lectura.nextInt();
+                            lectura.nextLine();
+
+                            Contrato contratoCancelar = sistema.buscarContrato(idContratoCancelar);
+
+                            if (contratoCancelar == null) {
+                                System.out.println("Contrato no encontrado.");
+                            } else if (contratoCancelar.cancelar()) {
+                                System.out.println("Contrato cancelado. El vehiculo vuelve a estar disponible.");
+                            } else {
+                                System.out.println("El contrato ya no esta activo.");
+                            }
+                            System.out.println("");
+                            break;
+                        }
+
+                        default:
+                            System.out.println("Opcion no valida.");
+                            System.out.println("");
+                    }
+
+                    break;
+                }
+
+                case 11:{
                     System.out.println("Gracias por usar el sistema.");
                     System.out.println("");
                     break;
@@ -329,7 +443,7 @@ public class Pura_Vida_Rent_a_Car {
 
             }
 
-            }while (opcion != 10);
+            }while (opcion != 11);
 
                 }
             }
