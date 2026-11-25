@@ -1,6 +1,8 @@
 
 package pura_vida_rent_a_car.Interfaz;
 import pura_vida_rent_a_car.Sistema_Rent_a_Car;
+import javax.swing.JOptionPane;
+import pura_vida_rent_a_car.Moto;
 /**
  *
  * @author Kenneth Herrera
@@ -40,14 +42,14 @@ public class RegistrarMoto extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtIdVehiculo = new javax.swing.JTextField();
+        txtMarca = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
+        txtKilometraje = new javax.swing.JTextField();
+        txtColor = new javax.swing.JTextField();
+        txtCilindraje = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,10 +73,11 @@ public class RegistrarMoto extends javax.swing.JFrame {
 
         jLabel7.setText("Cilindraje del vehiculo");
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(this::btnCancelarActionPerformed);
 
-        jButton2.setText("Guardar2");
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(this::btnGuardarActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,18 +99,18 @@ public class RegistrarMoto extends javax.swing.JFrame {
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                    .addComponent(txtIdVehiculo)
+                    .addComponent(txtMarca)
+                    .addComponent(txtModelo)
+                    .addComponent(txtKilometraje)
+                    .addComponent(txtColor)
+                    .addComponent(txtCilindraje, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
                 .addGap(16, 16, 16))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnGuardar)
                 .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
@@ -116,31 +119,31 @@ public class RegistrarMoto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtKilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCilindraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnGuardar))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -174,9 +177,109 @@ public class RegistrarMoto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        try {
+
+            String idTexto = txtIdVehiculo.getText().trim();
+            String marca = txtMarca.getText().trim();
+            String modelo = txtModelo.getText().trim();
+            String kilometrajeTexto = txtKilometraje.getText().trim();
+            String color = txtColor.getText().trim();
+            String cilindrajeTexto = txtCilindraje.getText().trim();
+
+            String errores = "";
+            
+            // Validaciones Campos vacíos y que se ingresen los datos con el tipo de dato correcto 
+
+            if (idTexto.isEmpty()) {
+                errores += "- Debe ingresar el ID del vehículo.\n";
+            }
+
+            if (marca.isEmpty()) {
+                errores += "- Debe ingresar la marca.\n";
+            }
+
+            if (modelo.isEmpty()) {
+                errores += "- Debe ingresar el modelo.\n";
+            }
+
+            if (kilometrajeTexto.isEmpty()) {
+                errores += "- Debe ingresar el kilometraje.\n";
+            }
+
+            if (color.isEmpty()) {
+                errores += "- Debe ingresar el color.\n";
+            }
+
+            if (cilindrajeTexto.isEmpty()) {
+                errores += "- Debe ingresar el cilindraje.\n";
+            }
+
+            if (!idTexto.isEmpty() && !idTexto.matches("\\d+")) {
+                errores += "- El ID solo debe contener números.\n";
+            }
+
+            if (!kilometrajeTexto.isEmpty()
+                    && !kilometrajeTexto.matches("\\d+")) {
+
+                errores += "- El kilometraje solo debe contener números.\n";
+            }
+
+            if (!cilindrajeTexto.isEmpty()
+                    && !cilindrajeTexto.matches("\\d+")) {
+
+                errores += "- El cilindraje solo debe contener números.\n";
+            }
+
+            if (!errores.isEmpty()) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        errores,
+                        "Errores encontrados",
+                        JOptionPane.WARNING_MESSAGE);
+
+                return;
+            }
+
+            int idVehiculo = Integer.parseInt(idTexto);
+            int kilometraje = Integer.parseInt(kilometrajeTexto);
+            int cilindraje = Integer.parseInt(cilindrajeTexto);
+
+            Moto moto = new Moto(
+                    idVehiculo,
+                    marca,
+                    modelo,
+                    kilometraje,
+                    color,
+                    cilindraje
+            );
+
+            sistema.registrarVehiculo(moto);
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Moto registrada correctamente");
+
+            txtIdVehiculo.setText("");
+            txtMarca.setText("");
+            txtModelo.setText("");
+            txtKilometraje.setText("");
+            txtColor.setText("");
+            txtCilindraje.setText("");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Error al registrar la moto");
+        }
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,8 +307,8 @@ public class RegistrarMoto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -214,11 +317,11 @@ public class RegistrarMoto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtCilindraje;
+    private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtIdVehiculo;
+    private javax.swing.JTextField txtKilometraje;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtModelo;
     // End of variables declaration//GEN-END:variables
 }

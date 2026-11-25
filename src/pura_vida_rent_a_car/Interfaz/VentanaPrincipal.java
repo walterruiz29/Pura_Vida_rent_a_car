@@ -172,7 +172,7 @@ public VentanaPrincipal(Sistema_Rent_a_Car sistema) {
     }//GEN-LAST:event_registrarClientesActionPerformed
 
     private void registrarVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVehiculosActionPerformed
-        String[] opciones = {"Sedan","SUV","Moto"};
+        String[] opciones = {" ", "Sedan","SUV","Moto"};
 
         String seleccion = (String) JOptionPane.showInputDialog(
                 this,
