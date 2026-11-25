@@ -1,15 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package pura_vida_rent_a_car.Interfaz;
 
+package pura_vida_rent_a_car.Interfaz;
+import pura_vida_rent_a_car.Sistema_Rent_a_Car;
 /**
  *
  * @author Kenneth Herrera
  */
 public class RegistrarMoto extends javax.swing.JFrame {
-    
+
+    private Sistema_Rent_a_Car sistema;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistrarMoto.class.getName());
 
     /**
@@ -17,6 +15,13 @@ public class RegistrarMoto extends javax.swing.JFrame {
      */
     public RegistrarMoto() {
         initComponents();
+    }
+
+    public RegistrarMoto(Sistema_Rent_a_Car sistema) {
+
+        initComponents();
+
+        this.sistema = sistema;
     }
 
     /**

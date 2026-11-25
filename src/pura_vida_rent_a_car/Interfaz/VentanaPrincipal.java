@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package pura_vida_rent_a_car.Interfaz;
 import pura_vida_rent_a_car.Sistema_Rent_a_Car;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Kenneth Herrera
@@ -174,7 +172,54 @@ public VentanaPrincipal(Sistema_Rent_a_Car sistema) {
     }//GEN-LAST:event_registrarClientesActionPerformed
 
     private void registrarVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVehiculosActionPerformed
-        // TODO add your handling code here:
+        String[] opciones = {"Sedan","SUV","Moto"};
+
+        String seleccion = (String) JOptionPane.showInputDialog(
+                this,
+                "¿Qué tipo de vehículo desea registrar?",
+                "Registro de Vehículos",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]);
+
+        if (seleccion == null) {
+            return;
+        }
+
+        switch (seleccion) {
+
+            case "Sedan":
+
+                RegistrarSedan sedan
+                        = new RegistrarSedan(this.sistema);
+
+                sedan.setLocationRelativeTo(null);
+                sedan.setVisible(true);
+
+                break;
+
+            case "SUV":
+
+                RegistrarSUV suv
+                        = new RegistrarSUV(this.sistema);
+
+                suv.setLocationRelativeTo(null);
+                suv.setVisible(true);
+
+                break;
+
+            case "Moto":
+
+                RegistrarMoto moto
+                        = new RegistrarMoto(this.sistema);
+
+                moto.setLocationRelativeTo(null);
+                moto.setVisible(true);
+
+                break;
+        }
+
     }//GEN-LAST:event_registrarVehiculosActionPerformed
 
     private void mostrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarClientesActionPerformed
