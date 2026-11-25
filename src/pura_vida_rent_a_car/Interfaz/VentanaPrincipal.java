@@ -178,7 +178,13 @@ public VentanaPrincipal(Sistema_Rent_a_Car sistema) {
     }//GEN-LAST:event_registrarVehiculosActionPerformed
 
     private void mostrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarClientesActionPerformed
-        // TODO add your handling code here:
+
+        MostrarClientes ventana
+                = new MostrarClientes(this.sistema);
+
+        ventana.setLocationRelativeTo(null);
+        ventana.setVisible(true);
+    
     }//GEN-LAST:event_mostrarClientesActionPerformed
 
     private void registrarClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarClientesMouseClicked

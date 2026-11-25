@@ -132,7 +132,11 @@ public class Sistema_Rent_a_Car {
         for (Mantenimiento mantenimiento : mantenimientos)
 System.out.println(mantenimiento);
     }
-
+    
+    
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
  
     public void RegistroPago() {
         Scanner lectura = new Scanner(System.in); 
