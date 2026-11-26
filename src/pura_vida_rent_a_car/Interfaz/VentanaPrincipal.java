@@ -84,6 +84,7 @@ public VentanaPrincipal(Sistema_Rent_a_Car sistema) {
         mostrarMantenimientos.setText("Mostrar Mantenimientos");
 
         registrarPago.setText("Registrar Pago");
+        registrarPago.addActionListener(this::registrarPagoActionPerformed);
 
         administrarContratos.setText("Administrar Contratos");
 
@@ -237,6 +238,11 @@ public VentanaPrincipal(Sistema_Rent_a_Car sistema) {
         ventanaClientes.setLocationRelativeTo(null);
         ventanaClientes.setVisible(true);
     }//GEN-LAST:event_registrarClientesMouseClicked
+
+    private void registrarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarPagoActionPerformed
+RegistrarPago ventanaPago = new RegistrarPago();
+    ventanaPago.setVisible(true);
+    }//GEN-LAST:event_registrarPagoActionPerformed
 
     /**
      * @param args the command line arguments

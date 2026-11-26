@@ -1,1 +1,2 @@
 23232434,342,324,3432,432684.0,Efectivo,Pendiente
+2313,3213124,1234,423456,312.0,Transferencia,Pagado
